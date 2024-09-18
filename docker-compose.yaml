@@ -37,7 +37,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
 
   backend_redis:
-    image: 339712948510.dkr.ecr.eu-north-1.amazonaws.com/tickera/redis:lates
+    image: 339712948510.dkr.ecr.eu-north-1.amazonaws.com/tickera/redis:latets
     container_name: backend_redis
     restart: always
     environment:
