@@ -8,14 +8,8 @@ services:
     ports:
       - "80:8000"
     environment:
-      - DJANGO_SETTINGS_MODULE=frontend.settings
-      - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT}
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - BACKEND_RDS_URL=postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
-      - BACKEND_REDIS_URL=redis://${REDIS_HOST}:${REDIS_PORT}/${REDIS_DB}
+      - BACKEND_RDS_URL=http://localhost:8001/test_connection/
+      - BACKEND_REDIS_URL=http://localhost:8002/test_connection/
     depends_on:
       - backend_rds
       - backend_redis
@@ -25,7 +19,7 @@ services:
     container_name: backend_rds
     restart: always
     ports:
-      - "5432:8000"
+      - "8000:8001"
     environment:
       - DJANGO_SETTINGS_MODULE=backend_rds.settings
       - DB_HOST=${DB_HOST}
@@ -39,7 +33,7 @@ services:
     container_name: backend_redis
     restart: always
     ports:
-      - "6379:8000"
+      - "8000:8002"
     environment:
       - DJANGO_SETTINGS_MODULE=backend_redis.settings
       - REDIS_HOST=${REDIS_HOST}
