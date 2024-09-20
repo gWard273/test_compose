@@ -19,7 +19,7 @@ services:
     container_name: backend_rds
     restart: always
     ports:
-      - "8001:8000"
+      - "8001:8001"
     environment:
       - DJANGO_SETTINGS_MODULE=backend_rds.settings
       - DB_HOST=${DB_HOST}
@@ -33,7 +33,7 @@ services:
     container_name: backend_redis
     restart: always
     ports:
-      - "8002:8000"
+      - "8002:8002"
     environment:
       - DJANGO_SETTINGS_MODULE=backend_redis.settings
       - REDIS_HOST=${REDIS_HOST}
