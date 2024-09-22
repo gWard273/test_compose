@@ -11,8 +11,8 @@ services:
       - BACKEND_RDS_URL=http://rds:8001/test_connection/
       - BACKEND_REDIS_URL=http://redis:8002/test_connection/
     depends_on:
-      - backend_rds
-      - backend_redis
+      - rds
+      - redis
 
   rds:
     image: 339712948510.dkr.ecr.eu-north-1.amazonaws.com/tickera/rds:latest
